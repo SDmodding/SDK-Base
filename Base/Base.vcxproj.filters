@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Project Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Project Files\Hooks">
+      <UniqueIdentifier>{5ba6edc8-3cdd-46a2-a197-f4119c7656bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project Files\3rdParty">
+      <UniqueIdentifier>{54f8cef4-76b1-4cba-98c2-1df02cad96b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project Files\3rdParty\ImGui">
+      <UniqueIdentifier>{052d96dc-2846-4442-8e6b-bde213dff7b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project Files\3rdParty\MinHook">
+      <UniqueIdentifier>{7e856a8b-d219-4fe6-a10d-b1e056880d88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project Files\3rdParty\MinHook\hde">
+      <UniqueIdentifier>{1d234f49-ab94-450e-a347-241bd3c082f1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cxx">
+      <Filter>Project Files</Filter>
+    </ClCompile>
+    <ClCompile Include="3rdParty\ImGui\imgui.cpp">
+      <Filter>Project Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="3rdParty\ImGui\imgui_draw.cpp">
+      <Filter>Project Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="3rdParty\ImGui\imgui_impl_dx11.cpp">
+      <Filter>Project Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="3rdParty\ImGui\imgui_impl_win32.cpp">
+      <Filter>Project Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="3rdParty\ImGui\imgui_tables.cpp">
+      <Filter>Project Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="3rdParty\ImGui\imgui_widgets.cpp">
+      <Filter>Project Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="3rdParty\MinHook\hde\hde64.c">
+      <Filter>Project Files\3rdParty\MinHook\hde</Filter>
+    </ClCompile>
+    <ClCompile Include="3rdParty\MinHook\buffer.c">
+      <Filter>Project Files\3rdParty\MinHook</Filter>
+    </ClCompile>
+    <ClCompile Include="3rdParty\MinHook\hook.c">
+      <Filter>Project Files\3rdParty\MinHook</Filter>
+    </ClCompile>
+    <ClCompile Include="3rdParty\MinHook\trampoline.c">
+      <Filter>Project Files\3rdParty\MinHook</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Hooks.hxx">
+      <Filter>Project Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.hxx">
+      <Filter>Project Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\PerformFlip.hxx">
+      <Filter>Project Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\WndProc.hxx">
+      <Filter>Project Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="3rdParty\ImGui\imconfig.h">
+      <Filter>Project Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="3rdParty\ImGui\imgui.h">
+      <Filter>Project Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="3rdParty\ImGui\imgui_impl_dx11.h">
+      <Filter>Project Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="3rdParty\ImGui\imgui_impl_win32.h">
+      <Filter>Project Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="3rdParty\ImGui\imgui_internal.h">
+      <Filter>Project Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="3rdParty\ImGui\imstb_rectpack.h">
+      <Filter>Project Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="3rdParty\ImGui\imstb_textedit.h">
+      <Filter>Project Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="3rdParty\ImGui\imstb_truetype.h">
+      <Filter>Project Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="3rdParty\MinHook\hde\hde64.h">
+      <Filter>Project Files\3rdParty\MinHook\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="3rdParty\MinHook\hde\pstdint.h">
+      <Filter>Project Files\3rdParty\MinHook\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="3rdParty\MinHook\hde\table64.h">
+      <Filter>Project Files\3rdParty\MinHook\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="3rdParty\MinHook\buffer.h">
+      <Filter>Project Files\3rdParty\MinHook</Filter>
+    </ClInclude>
+    <ClInclude Include="3rdParty\MinHook\trampoline.h">
+      <Filter>Project Files\3rdParty\MinHook</Filter>
+    </ClInclude>
+    <ClInclude Include="3rdParty\MinHook.h">
+      <Filter>Project Files\3rdParty</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\GameStateInGame.hxx">
+      <Filter>Project Files\Hooks</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
