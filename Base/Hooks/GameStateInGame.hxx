@@ -1,5 +1,10 @@
 #pragma once
 
+/*
+* Main game-thread:
+* This is called each frame when you're in-game. Here you need to do everything related to transform/calling game-thread safe functions, etc...
+*/
+
 namespace Hook
 {
     typedef void(__fastcall* m_tGameStateInGameUpdate)(void*, float);

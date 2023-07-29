@@ -1,5 +1,7 @@
 #pragma once
 
+// More Info: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nc-winuser-wndproc
+
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 namespace Hook
