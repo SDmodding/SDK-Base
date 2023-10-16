@@ -10,7 +10,6 @@
 namespace Render
 {
 	ID3D11DeviceContext* m_DeviceCtx = nullptr;
-	ID3D11RenderTargetView* m_RenderTargetView = nullptr;
 
 	void InitializeStyle()
 	{
@@ -27,25 +26,9 @@ namespace Render
 		}
 	}
 
-	bool Initialize(HWND p_Window, ID3D11Device* p_Device, ID3D11DeviceContext* p_DeviceCtx, IDXGISwapChain* p_SwapChain)
+	bool Initialize(HWND p_Window, ID3D11Device* p_Device, ID3D11DeviceContext* p_DeviceCtx)
 	{
 		m_DeviceCtx = p_DeviceCtx;
-
-		ID3D11Texture2D* m_RenderTargetTexture = nullptr;
-		if (SUCCEEDED(p_SwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), reinterpret_cast<LPVOID*>(&m_RenderTargetTexture))))
-		{
-			D3D11_RENDER_TARGET_VIEW_DESC m_RenderTargetViewDesc;
-			memset(&m_RenderTargetViewDesc, 0, sizeof(m_RenderTargetViewDesc));
-
-			m_RenderTargetViewDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-			m_RenderTargetViewDesc.ViewDimension = D3D11_RTV_DIMENSION_TEXTURE2D;
-
-			p_Device->CreateRenderTargetView(m_RenderTargetTexture, &m_RenderTargetViewDesc, &m_RenderTargetView);
-			m_RenderTargetTexture->Release();
-		}
-
-		if (!m_RenderTargetView)
-			return false;
 
 		ImGui::CreateContext();
 
@@ -67,8 +50,6 @@ namespace Render
 
 	void Uninitialize()
 	{
-		m_RenderTargetView->Release();
-
 		ImGui_ImplDX11_Shutdown();
 		ImGui_ImplWin32_Shutdown();
 		ImGui::DestroyContext();
@@ -111,7 +92,7 @@ namespace Render
 		ImGui::EndFrame();
 		ImGui::Render();
 
-		m_DeviceCtx->OMSetRenderTargets(1, &m_RenderTargetView, 0);
+		m_DeviceCtx->OMSetRenderTargets(1, Render::GetRenderTargetView(), 0);
 		ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 	}
 }

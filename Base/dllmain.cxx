@@ -21,7 +21,7 @@ DWORD __stdcall MainThread(void* p_Reserved)
     while (!(*UFG::Global::DXGISwapChain))
         Sleep(10);
 
-    if (!Render::Initialize(*UFG::Global::Window, reinterpret_cast<ID3D11Device*>(*UFG::Global::D3D11Device), reinterpret_cast<ID3D11DeviceContext*>(*UFG::Global::D3D11DeviceContext), reinterpret_cast<IDXGISwapChain*>(*UFG::Global::DXGISwapChain)))
+    if (!Render::Initialize(*UFG::Global::Window, reinterpret_cast<ID3D11Device*>(*UFG::Global::D3D11Device), reinterpret_cast<ID3D11DeviceContext*>(*UFG::Global::D3D11DeviceContext)))
     {
         FreeLibraryAndExitThread(reinterpret_cast<HMODULE>(p_Reserved), 0x0);
         return 0;
