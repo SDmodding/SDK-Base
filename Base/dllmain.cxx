@@ -18,10 +18,12 @@ namespace Global
 
 DWORD __stdcall MainThread(void* p_Reserved)
 {
-    while (!(*UFG::Global::DXGISwapChain))
+    UFG::D3DGlobals_t* m_D3DGlobals = UFG::D3DGlobals_t::Get();
+
+    while (!m_D3DGlobals->m_DXGISwapChain)
         Sleep(10);
 
-    if (!Render::Initialize(*UFG::Global::Window, reinterpret_cast<ID3D11Device*>(*UFG::Global::D3D11Device), reinterpret_cast<ID3D11DeviceContext*>(*UFG::Global::D3D11DeviceContext)))
+    if (!Render::Initialize(UFG::Global::GetWindowHandle(), m_D3DGlobals->m_Device, m_D3DGlobals->m_DeviceCtx))
     {
         FreeLibraryAndExitThread(reinterpret_cast<HMODULE>(p_Reserved), 0x0);
         return 0;
