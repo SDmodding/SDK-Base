@@ -14,12 +14,6 @@
     <Filter Include="Project Files\3rdParty\ImGui">
       <UniqueIdentifier>{052d96dc-2846-4442-8e6b-bde213dff7b6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Project Files\3rdParty\MinHook">
-      <UniqueIdentifier>{7e856a8b-d219-4fe6-a10d-b1e056880d88}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Project Files\3rdParty\MinHook\hde">
-      <UniqueIdentifier>{1d234f49-ab94-450e-a347-241bd3c082f1}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cxx">
@@ -42,18 +36,6 @@
     </ClCompile>
     <ClCompile Include="3rdParty\ImGui\imgui_widgets.cpp">
       <Filter>Project Files\3rdParty\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="3rdParty\MinHook\hde\hde64.c">
-      <Filter>Project Files\3rdParty\MinHook\hde</Filter>
-    </ClCompile>
-    <ClCompile Include="3rdParty\MinHook\buffer.c">
-      <Filter>Project Files\3rdParty\MinHook</Filter>
-    </ClCompile>
-    <ClCompile Include="3rdParty\MinHook\hook.c">
-      <Filter>Project Files\3rdParty\MinHook</Filter>
-    </ClCompile>
-    <ClCompile Include="3rdParty\MinHook\trampoline.c">
-      <Filter>Project Files\3rdParty\MinHook</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -92,24 +74,6 @@
     </ClInclude>
     <ClInclude Include="3rdParty\ImGui\imstb_truetype.h">
       <Filter>Project Files\3rdParty\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="3rdParty\MinHook\hde\hde64.h">
-      <Filter>Project Files\3rdParty\MinHook\hde</Filter>
-    </ClInclude>
-    <ClInclude Include="3rdParty\MinHook\hde\pstdint.h">
-      <Filter>Project Files\3rdParty\MinHook\hde</Filter>
-    </ClInclude>
-    <ClInclude Include="3rdParty\MinHook\hde\table64.h">
-      <Filter>Project Files\3rdParty\MinHook\hde</Filter>
-    </ClInclude>
-    <ClInclude Include="3rdParty\MinHook\buffer.h">
-      <Filter>Project Files\3rdParty\MinHook</Filter>
-    </ClInclude>
-    <ClInclude Include="3rdParty\MinHook\trampoline.h">
-      <Filter>Project Files\3rdParty\MinHook</Filter>
-    </ClInclude>
-    <ClInclude Include="3rdParty\MinHook.h">
-      <Filter>Project Files\3rdParty</Filter>
     </ClInclude>
     <ClInclude Include="Hooks\GameStateInGame.hxx">
       <Filter>Project Files\Hooks</Filter>

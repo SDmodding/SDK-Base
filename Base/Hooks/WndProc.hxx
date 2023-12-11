@@ -1,13 +1,15 @@
+//=============================================================================
+// 
+// Description:		Basically WndProc more info here:
+//					https://learn.microsoft.com/en-us/windows/win32/api/winuser/nc-winuser-wndproc
+// 
+//=============================================================================
 #pragma once
 
-// More Info: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nc-winuser-wndproc
-
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
-
 namespace Hook
 {
-    typedef LRESULT(__stdcall* m_tWndProc)(HWND, UINT, WPARAM, LPARAM);
-    m_tWndProc m_oWndProc;
+    WNDPROC m_oWndProc;
 
     LRESULT __stdcall WndProc(HWND p_Window, UINT p_Msg, WPARAM p_WParam, LPARAM p_LParam)
     {
@@ -22,6 +24,9 @@ namespace Hook
                 if (!m_SpecialKeyPressed)
                 {
                     Render::m_Visible = !Render::m_Visible;
+                    if (!Render::m_Visible) {
+                        UFG::Input::EnableGameInput(true);
+                    }
                     m_SpecialKeyPressed = true;
                 }
             }
@@ -30,7 +35,9 @@ namespace Hook
 
         }
 
-        UFG::Input::EnableGameInput(!Render::m_Visible);
+        if (Render::m_Visible) {
+            UFG::Input::EnableGameInput(false);
+        }
 
         return CallWindowProcA(m_oWndProc, p_Window, p_Msg, p_WParam, p_LParam);
     }

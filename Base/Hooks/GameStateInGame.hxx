@@ -1,14 +1,16 @@
+//=============================================================================
+// 
+// Description:		This function is called each frame while in-game (even when in pause menu).
+//					You're inside game-thread, do everything here if you want to spawn object,
+//                  change object transform, etc...
+// 
+//=============================================================================
 #pragma once
-
-/*
-* Main game-thread:
-* This is called each frame when you're in-game. Here you need to do everything related to transform/calling game-thread safe functions, etc...
-*/
 
 namespace Hook
 {
-    typedef void(__fastcall* m_tGameStateInGameUpdate)(void*, float);
-    m_tGameStateInGameUpdate m_oGameStateInGameUpdate;
+    typedef void(__fastcall* Fn_GameStateInGameUpdate)(void*, float);
+    Fn_GameStateInGameUpdate m_oGameStateInGameUpdate;
 
     void __fastcall GameStateInGameUpdate(void* p_GameState, float p_TimeDelta)
     {

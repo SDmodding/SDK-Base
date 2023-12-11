@@ -79,6 +79,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>D:\Sources\SDmodding\SDK Development\SDK Development;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Sources\SDmodding\SDK Development\SDK Development;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -159,10 +160,6 @@
     <ClCompile Include="3rdParty\ImGui\imgui_impl_win32.cpp" />
     <ClCompile Include="3rdParty\ImGui\imgui_tables.cpp" />
     <ClCompile Include="3rdParty\ImGui\imgui_widgets.cpp" />
-    <ClCompile Include="3rdParty\MinHook\buffer.c" />
-    <ClCompile Include="3rdParty\MinHook\hde\hde64.c" />
-    <ClCompile Include="3rdParty\MinHook\hook.c" />
-    <ClCompile Include="3rdParty\MinHook\trampoline.c" />
     <ClCompile Include="dllmain.cxx" />
   </ItemGroup>
   <ItemGroup>
@@ -174,12 +171,6 @@
     <ClInclude Include="3rdParty\ImGui\imstb_rectpack.h" />
     <ClInclude Include="3rdParty\ImGui\imstb_textedit.h" />
     <ClInclude Include="3rdParty\ImGui\imstb_truetype.h" />
-    <ClInclude Include="3rdParty\MinHook.h" />
-    <ClInclude Include="3rdParty\MinHook\buffer.h" />
-    <ClInclude Include="3rdParty\MinHook\hde\hde64.h" />
-    <ClInclude Include="3rdParty\MinHook\hde\pstdint.h" />
-    <ClInclude Include="3rdParty\MinHook\hde\table64.h" />
-    <ClInclude Include="3rdParty\MinHook\trampoline.h" />
     <ClInclude Include="Hooks.hxx" />
     <ClInclude Include="Hooks\GameStateInGame.hxx" />
     <ClInclude Include="Hooks\PerformFlip.hxx" />
