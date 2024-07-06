@@ -16,7 +16,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cxx">
+    <ClCompile Include="dllmain.cc">
       <Filter>Project Files</Filter>
     </ClCompile>
     <ClCompile Include="3rdParty\ImGui\imgui.cpp">
@@ -39,16 +39,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Hooks.hxx">
+    <ClInclude Include="Hooks.hh">
       <Filter>Project Files</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.hxx">
+    <ClInclude Include="Renderer.hh">
       <Filter>Project Files</Filter>
     </ClInclude>
-    <ClInclude Include="Hooks\PerformFlip.hxx">
+    <ClInclude Include="Hooks\PerformFlip.hh">
       <Filter>Project Files\Hooks</Filter>
     </ClInclude>
-    <ClInclude Include="Hooks\WndProc.hxx">
+    <ClInclude Include="Hooks\WndProc.hh">
       <Filter>Project Files\Hooks</Filter>
     </ClInclude>
     <ClInclude Include="3rdParty\ImGui\imconfig.h">
@@ -75,7 +75,7 @@
     <ClInclude Include="3rdParty\ImGui\imstb_truetype.h">
       <Filter>Project Files\3rdParty\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="Hooks\GameStateInGame.hxx">
+    <ClInclude Include="Hooks\GameStateInGame.hh">
       <Filter>Project Files\Hooks</Filter>
     </ClInclude>
   </ItemGroup>

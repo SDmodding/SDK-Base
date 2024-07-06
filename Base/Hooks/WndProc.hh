@@ -9,7 +9,7 @@
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 namespace Hook
 {
-    WNDPROC m_oWndProc;
+    WNDPROC g_WndProc;
 
     LRESULT __stdcall WndProc(HWND p_Window, UINT p_Msg, WPARAM p_WParam, LPARAM p_LParam)
     {
@@ -23,10 +23,7 @@ namespace Hook
             {
                 if (!m_SpecialKeyPressed)
                 {
-                    Render::m_Visible = !Render::m_Visible;
-                    if (!Render::m_Visible) {
-                        UFG::Input::EnableGameInput(true);
-                    }
+                    Render::g_Visible = !Render::g_Visible;
                     m_SpecialKeyPressed = true;
                 }
             }
@@ -35,10 +32,14 @@ namespace Hook
 
         }
 
-        if (Render::m_Visible) {
-            UFG::Input::EnableGameInput(false);
+        static bool s_PrevEnableGameInput = true;
+        if (Render::g_Visible) {
+            UFG::Input::EnableGameInput(false, &s_PrevEnableGameInput);
+        }
+        else if (!s_PrevEnableGameInput) {
+            UFG::Input::EnableGameInput(true, &s_PrevEnableGameInput);
         }
 
-        return CallWindowProcA(m_oWndProc, p_Window, p_Msg, p_WParam, p_LParam);
+        return CallWindowProcA(g_WndProc, p_Window, p_Msg, p_WParam, p_LParam);
     }
 }

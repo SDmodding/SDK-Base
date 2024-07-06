@@ -10,12 +10,12 @@
 namespace Hook
 {
     typedef void(__fastcall* Fn_GameStateInGameUpdate)(void*, float);
-    Fn_GameStateInGameUpdate m_oGameStateInGameUpdate;
+    Fn_GameStateInGameUpdate g_GameStateInGameUpdate;
 
     void __fastcall GameStateInGameUpdate(void* p_GameState, float p_TimeDelta)
     {
-        m_oGameStateInGameUpdate(p_GameState, p_TimeDelta);
+        g_GameStateInGameUpdate(p_GameState, p_TimeDelta);
 
-        Global::m_GameStateInGameCounter++;
+        Global::g_GameStateInGameCounter++;
     }
 }

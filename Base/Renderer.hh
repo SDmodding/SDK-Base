@@ -9,7 +9,7 @@
 
 namespace Render
 {
-	ID3D11DeviceContext* m_DeviceCtx = nullptr;
+	ID3D11DeviceContext* g_DeviceCtx = nullptr;
 
 	void InitializeStyle()
 	{
@@ -28,7 +28,7 @@ namespace Render
 
 	bool Initialize(HWND p_Window, ID3D11Device* p_Device, ID3D11DeviceContext* p_DeviceCtx)
 	{
-		m_DeviceCtx = p_DeviceCtx;
+		g_DeviceCtx = p_DeviceCtx;
 
 		ImGui::CreateContext();
 
@@ -55,12 +55,13 @@ namespace Render
 		ImGui::DestroyContext();
 	}
 
-	bool m_Visible = true;
+	bool g_Visible = true;
 
 	void OnFrame()
 	{
-		if (!m_Visible)
+		if (!g_Visible) {
 			return;
+		}
 
 		ImGui_ImplDX11_NewFrame();
 		ImGui_ImplWin32_NewFrame();
@@ -74,16 +75,16 @@ namespace Render
 			ImGui::Text("Hello SDmodding!");
 			ImGui::Text("GameStateInGame::UpdateCounter -");
 			ImGui::SameLine();
-			ImGui::TextColored(ImVec4(1.f, 1.f, 0.f, 1.f), "%d", static_cast<int>(Global::m_GameStateInGameCounter));
+			ImGui::TextColored(ImVec4(1.f, 1.f, 0.f, 1.f), "%d", static_cast<int>(Global::g_GameStateInGameCounter));
 
 			ImGui::Separator();
 
-			UFG::CSimCharacter* m_LocalPlayer = UFG::LocalPlayer::Get();
-			ImGui::Text("LocalPlayer: 0x%p", m_LocalPlayer);
-			if (m_LocalPlayer && m_LocalPlayer->m_pTransformNodeComponent)
+			auto pLocalPlayer = UFG::LocalPlayer::Get();
+			ImGui::Text("LocalPlayer: 0x%p", pLocalPlayer);
+			if (pLocalPlayer && pLocalPlayer->m_pTransformNodeComponent)
 			{
-				UFG::qVector4& m_Position = m_LocalPlayer->m_pTransformNodeComponent->mWorldTransform.v3;
-				ImGui::Text("- Position: %.2f, %.2f, %.2f", m_Position.x, m_Position.y, m_Position.z);
+				UFG::qVector4& qPosition = pLocalPlayer->m_pTransformNodeComponent->mWorldTransform.v3;
+				ImGui::Text("- Position: %.2f, %.2f, %.2f", qPosition.x, qPosition.y, qPosition.z);
 			}
 
 			ImGui::End();
@@ -92,7 +93,7 @@ namespace Render
 		ImGui::EndFrame();
 		ImGui::Render();
 
-		m_DeviceCtx->OMSetRenderTargets(1, Render::GetRenderTargetView(), 0);
+		g_DeviceCtx->OMSetRenderTargets(1, Render::GetRenderTargetView(), 0);
 		ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 	}
 }

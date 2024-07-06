@@ -9,12 +9,12 @@
 namespace Hook
 {
     typedef bool(__fastcall* Fn_PerformFlip)(uint32_t);
-    Fn_PerformFlip m_oPerformFlip;
+    Fn_PerformFlip g_PerformFlip;
 
     bool __fastcall PerformFlip(uint32_t p_SyncInterval)
     {
         Render::OnFrame();
 
-        return m_oPerformFlip(p_SyncInterval);
+        return g_PerformFlip(p_SyncInterval);
     }
 }
